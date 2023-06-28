@@ -23,26 +23,28 @@ class CalculateActivity : AppCompatActivity(), Calculate {
         val adapter = GroupieAdapter()
         rv.adapter = adapter
 
-        adapter.add(CrystalItem(Crystals(" $2", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals(" $3", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals(" $4", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals(" $5", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals(" $7", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals(" $9", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("-$3", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("2", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("3", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("4", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("5", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("7", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("9", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("-3", R.drawable.ic_refresh), this))
 
         val name: EditText = findViewById(R.id.edit_player_name)
         val fabDone: FloatingActionButton = findViewById(R.id.fab_done)
 
         fabDone.setOnClickListener {
-            setResult(100, Intent().putExtra("ok", name.text.toString()).putExtra("point", point))
+            setResult(100, Intent()
+                .putExtra("name", name.text.toString())
+                .putExtra("point", point))
             finish()
         }
     }
 
-    override fun calculate(crystalQtd: Int) {
+    override fun calculate(value: Int, crystalQtd: Int) {
         //elaborar as contas matemáticas
-        point = crystalQtd
+        point = value * crystalQtd
     }
 
 }

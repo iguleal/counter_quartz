@@ -26,16 +26,19 @@ class CrystalItem(
            var crystals =  viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
             crystals -= 1
             viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text = crystals.toString()
-            calculate.calculate(crystals)
+
+            val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
+            calculate.calculate(value, crystals)
         }
 
         viewHolder.itemView.findViewById<ImageView>(R.id.img_plus).setOnClickListener {
             var crystals =  viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
             crystals += 1
             viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text = crystals.toString()
-            calculate.calculate(crystals)
-        }
 
+            val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
+            calculate.calculate(value, crystals)
+        }
 
     }
 }

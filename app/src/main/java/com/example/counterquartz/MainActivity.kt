@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == 100){
-                val name = (result.data?.getStringExtra("ok"))!!
+                val name = (result.data?.getStringExtra("name"))!!
                 val point = (result.data?.getIntExtra("point", 0))!!
                 adapter.add(PlayerItem(Player(name, point)))
             }
