@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Counter Quartz</string>
+    <string name="quartz">Quartz</string>
+</resources>
