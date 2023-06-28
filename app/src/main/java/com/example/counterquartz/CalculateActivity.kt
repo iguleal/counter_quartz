@@ -42,14 +42,13 @@ class CalculateActivity : AppCompatActivity(), Calculate {
         }
     }
 
-    override fun calculate(value: Int, isPlus: Boolean) {
+    override fun calculate(value: Int, isPlus: Boolean, bonus: Int) {
 
         if (isPlus){
-            point += value
+            point += (value + bonus)
         } else {
-            point -= value
+            point -= (value + bonus)
         }
 
     }
-
 }

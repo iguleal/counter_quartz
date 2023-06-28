@@ -23,28 +23,40 @@ class CrystalItem(
         val crystalValue = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value)
         val crystalImage = viewHolder.itemView.findViewById<ImageView>(R.id.img_crystal_icon)
         val btnMinus = viewHolder.itemView.findViewById<ImageView>(R.id.img_minus)
-        val qtdCrystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals)
+        val crystalsQtd = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals)
         val btnPlus = viewHolder.itemView.findViewById<ImageView>(R.id.img_plus)
 
         crystalImage.setImageResource(crystal.img)
         crystalValue.text = crystal.value
 
         btnMinus.setOnClickListener {
-            var crystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
+            var crystals = crystalsQtd.text.toString().toInt()
             crystals -= 1
-            qtdCrystals.text = crystals.toString()
+            crystalsQtd.text = crystals.toString()
 
-            val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
-            calculate.calculate(value, false)
+            val value = crystalValue.text.toString().toInt()
+
+            when(crystals){
+                3 -> calculate.calculate(value, false, 3-4)
+                4 -> calculate.calculate(value, false, 4-5)
+                5 -> calculate.calculate(value, false, 5)
+                else -> calculate.calculate(value, false)
+            }
         }
 
         btnPlus.setOnClickListener {
-            var crystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
+            var crystals = crystalsQtd.text.toString().toInt()
             crystals += 1
-            qtdCrystals.text = crystals.toString()
+            crystalsQtd.text = crystals.toString()
 
-            val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
-            calculate.calculate(value, true)
+            val value = crystalValue.text.toString().toInt()
+
+            when(crystals){
+                3 -> calculate.calculate(value, true, 3)
+                4 -> calculate.calculate(value, true, 4-3)
+                5 -> calculate.calculate(value, true, 5-4)
+                else -> calculate.calculate(value, true)
+            }
         }
 
     }
