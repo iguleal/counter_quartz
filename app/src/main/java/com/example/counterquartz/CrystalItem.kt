@@ -19,25 +19,32 @@ class CrystalItem(
     override fun getLayout() = R.layout.item_crystals
 
     override fun bind(viewHolder: CrystalViewHolder, position: Int) {
-        viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text = crystal.value
-        viewHolder.itemView.findViewById<ImageView>(R.id.img_crystal_icon).setImageResource(crystal.img)
 
-        viewHolder.itemView.findViewById<ImageView>(R.id.img_minus).setOnClickListener {
-           var crystals =  viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
+        val crystalValue = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value)
+        val crystalImage = viewHolder.itemView.findViewById<ImageView>(R.id.img_crystal_icon)
+        val btnMinus = viewHolder.itemView.findViewById<ImageView>(R.id.img_minus)
+        val qtdCrystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals)
+        val btnPlus = viewHolder.itemView.findViewById<ImageView>(R.id.img_plus)
+
+        crystalImage.setImageResource(crystal.img)
+        crystalValue.text = crystal.value
+
+        btnMinus.setOnClickListener {
+            var crystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
             crystals -= 1
-            viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text = crystals.toString()
+            qtdCrystals.text = crystals.toString()
 
             val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
-            calculate.calculate(value, crystals)
+            calculate.calculate(value, false)
         }
 
-        viewHolder.itemView.findViewById<ImageView>(R.id.img_plus).setOnClickListener {
-            var crystals =  viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
+        btnPlus.setOnClickListener {
+            var crystals = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text.toString().toInt()
             crystals += 1
-            viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals).text = crystals.toString()
+            qtdCrystals.text = crystals.toString()
 
             val value = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystal_value).text.toString().toInt()
-            calculate.calculate(value, crystals)
+            calculate.calculate(value, true)
         }
 
     }

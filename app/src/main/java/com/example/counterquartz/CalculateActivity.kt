@@ -42,9 +42,14 @@ class CalculateActivity : AppCompatActivity(), Calculate {
         }
     }
 
-    override fun calculate(value: Int, crystalQtd: Int) {
-        //elaborar as contas matemáticas
-        point = value * crystalQtd
+    override fun calculate(value: Int, isPlus: Boolean) {
+
+        if (isPlus){
+            point += value
+        } else {
+            point -= value
+        }
+
     }
 
 }
