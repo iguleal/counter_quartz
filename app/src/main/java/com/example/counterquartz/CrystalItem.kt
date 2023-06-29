@@ -1,8 +1,11 @@
 package com.example.counterquartz
 
+import android.graphics.drawable.LayerDrawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import com.example.counterquartz.model.Crystals
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
@@ -25,6 +28,9 @@ class CrystalItem(
         val btnMinus = viewHolder.itemView.findViewById<ImageView>(R.id.img_minus)
         val crystalsQtd = viewHolder.itemView.findViewById<TextView>(R.id.txt_crystals)
         val btnPlus = viewHolder.itemView.findViewById<ImageView>(R.id.img_plus)
+        val container = viewHolder.itemView.findViewById<ConstraintLayout>(R.id.container)
+
+        container.setBackgroundResource(crystal.bgColor)
 
         crystalImage.setImageResource(crystal.img)
         crystalValue.text = crystal.value

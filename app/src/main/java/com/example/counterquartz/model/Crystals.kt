@@ -5,4 +5,5 @@ import androidx.annotation.DrawableRes
 data class Crystals(
     val value: String,
     @DrawableRes val img: Int,
+    val bgColor: Int
 )

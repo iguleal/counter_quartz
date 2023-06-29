@@ -2,42 +2,43 @@ package com.example.counterquartz
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.counterquartz.databinding.ActivityCalculateBinding
 import com.example.counterquartz.model.Crystals
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.xwray.groupie.GroupieAdapter
 
 class CalculateActivity : AppCompatActivity(), Calculate {
 
+    private lateinit var binding: ActivityCalculateBinding
     private var point: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calculate)
+        binding = ActivityCalculateBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val rv: RecyclerView = findViewById(R.id.rv_crystal)
-        rv.layoutManager = LinearLayoutManager(this)
+        binding.rvCrystal.layoutManager = LinearLayoutManager(this)
         val adapter = GroupieAdapter()
-        rv.adapter = adapter
+        binding.rvCrystal.adapter = adapter
 
-        adapter.add(CrystalItem(Crystals("2", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("3", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("4", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("5", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("7", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("9", R.drawable.ic_refresh), this))
-        adapter.add(CrystalItem(Crystals("-3", R.drawable.ic_refresh), this))
+        adapter.add(CrystalItem(Crystals("2", R.drawable.ic_quartz, R.drawable.shadow_quartz), this))
+        adapter.add(CrystalItem(Crystals("3", R.drawable.ic_rubelita, R.drawable.shadow_rubelita), this))
+        adapter.add(CrystalItem(Crystals("4", R.drawable.ic_esmeralda,R.drawable.shadow_esmeralda), this))
+        adapter.add(CrystalItem(Crystals("5", R.drawable.ic_safira,R.drawable.shadow_safira), this))
+        adapter.add(CrystalItem(Crystals("7", R.drawable.ic_rubi,R.drawable.shadow_rubi), this))
+        adapter.add(CrystalItem(Crystals("9", R.drawable.ic_ambar,R.drawable.shadow_ambar), this))
+        adapter.add(CrystalItem(Crystals("-3", R.drawable.ic_autunita,R.drawable.shadow_autunita), this))
 
-        val name: EditText = findViewById(R.id.edit_player_name)
-        val fabDone: FloatingActionButton = findViewById(R.id.fab_done)
 
-        fabDone.setOnClickListener {
+        binding.fabDone.setOnClickListener {
+            if (binding.checkbox.isChecked){
+                point += -5
+            }
+
             setResult(
                 MainActivity.RESULT_CODE, Intent()
-                    .putExtra(MainActivity.NAME, name.text.toString())
+                    .putExtra(MainActivity.NAME, binding.editPlayerName.text.toString())
                     .putExtra(MainActivity.POINT, point)
             )
             finish()

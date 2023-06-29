@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/shadow_bg">
+
+        <shape android:shape="rectangle">
+
+            <gradient
+                android:startColor="#8071BF4C"
+                android:centerColor="#CE71BF4C"
+                android:endColor="#8071BF4C"/>
+        </shape>
+
+    </item>
+</layer-list>
