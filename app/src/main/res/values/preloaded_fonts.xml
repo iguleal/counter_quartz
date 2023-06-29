@@ -2,5 +2,6 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/cabin</item>
+        <item>@font/finger_paint</item>
     </array>
 </resources>

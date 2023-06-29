@@ -1,8 +1,9 @@
 package com.example.counterquartz
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Window
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.counterquartz.databinding.ActivityCalculateBinding
@@ -43,6 +44,15 @@ class CalculateActivity : AppCompatActivity(), Calculate {
                     .putExtra(MainActivity.NAME, binding.editPlayerName.text.toString())
                     .putExtra(MainActivity.POINT, point)
             )
+            finish()
+        }
+
+        binding.calculateContainer.setOnClickListener {
+            val keyboardService = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            keyboardService.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+        }
+
+        binding.imgClose.setOnClickListener {
             finish()
         }
     }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Counter Quartz</string>
     <string name="quartz">Quartz</string>
+    <string name="made_by">Made by Igor Leal\nThanks for your support</string>
 </resources>
