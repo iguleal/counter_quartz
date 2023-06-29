@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/background_calculate"/>
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#80000000"
+                android:centerColor="#4D000000"
+                android:endColor="#80000000"/>
+        </shape>
+    </item>
+
+</layer-list>

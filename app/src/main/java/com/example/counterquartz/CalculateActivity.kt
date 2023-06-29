@@ -2,6 +2,7 @@ package com.example.counterquartz
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.counterquartz.databinding.ActivityCalculateBinding
@@ -15,6 +16,7 @@ class CalculateActivity : AppCompatActivity(), Calculate {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityCalculateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
