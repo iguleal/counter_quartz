@@ -13,6 +13,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.xwray.groupie.GroupieAdapter
 
 class MainActivity : AppCompatActivity() {
+
+    companion object{
+        const val NAME = "name"
+        const val POINT = "point"
+        const val RESULT_CODE = 100
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         rv.adapter = adapter
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
-            if (result.resultCode == 100){
-                val name = (result.data?.getStringExtra("name"))!!
-                val point = (result.data?.getIntExtra("point", 0))!!
+            if (result.resultCode == RESULT_CODE){
+                val name = (result.data?.getStringExtra(NAME))!!
+                val point = (result.data?.getIntExtra(POINT, 0))!!
                 adapter.add(PlayerItem(Player(name, point)))
             }
         }

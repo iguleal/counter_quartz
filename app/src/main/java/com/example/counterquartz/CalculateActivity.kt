@@ -35,20 +35,16 @@ class CalculateActivity : AppCompatActivity(), Calculate {
         val fabDone: FloatingActionButton = findViewById(R.id.fab_done)
 
         fabDone.setOnClickListener {
-            setResult(100, Intent()
-                .putExtra("name", name.text.toString())
-                .putExtra("point", point))
+            setResult(
+                MainActivity.RESULT_CODE, Intent()
+                    .putExtra(MainActivity.NAME, name.text.toString())
+                    .putExtra(MainActivity.POINT, point)
+            )
             finish()
         }
     }
 
-    override fun calculate(value: Int, isPlus: Boolean, bonus: Int) {
-
-        if (isPlus){
-            point += (value + bonus)
-        } else {
-            point -= (value + bonus)
-        }
-
+    override fun calculate(value: Int, bonus: Int) {
+        point += (value + bonus)
     }
 }

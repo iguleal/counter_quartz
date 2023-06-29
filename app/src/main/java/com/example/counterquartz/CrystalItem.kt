@@ -36,11 +36,11 @@ class CrystalItem(
 
             val value = crystalValue.text.toString().toInt()
 
-            when(crystals){
-                3 -> calculate.calculate(value, false, 3-4)
-                4 -> calculate.calculate(value, false, 4-5)
-                5 -> calculate.calculate(value, false, 5)
-                else -> calculate.calculate(value, false)
+            when (crystals) {
+                2 -> calculate.calculate(-value, -3)
+                3 -> calculate.calculate(-value, 3 - 4)
+                4 -> calculate.calculate(-value, 4 - 5)
+                else -> calculate.calculate(-value)
             }
         }
 
@@ -51,11 +51,11 @@ class CrystalItem(
 
             val value = crystalValue.text.toString().toInt()
 
-            when(crystals){
-                3 -> calculate.calculate(value, true, 3)
-                4 -> calculate.calculate(value, true, 4-3)
-                5 -> calculate.calculate(value, true, 5-4)
-                else -> calculate.calculate(value, true)
+            when (crystals) {
+                3 -> calculate.calculate(value, 3)
+                4 -> calculate.calculate(value, 4 - 3)
+                5 -> calculate.calculate(value, 5 - 4)
+                else -> calculate.calculate(value)
             }
         }
 
