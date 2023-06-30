@@ -3,5 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="royal_blue">#1976D2</color>
-    <color name="dark_blue">#11194A</color>
+    <color name="my_blue">#FF2B476F</color>
+    <color name="dark_blue">#FF11194A</color>
+    <color name="gold">#D1AF09</color>
 </resources>

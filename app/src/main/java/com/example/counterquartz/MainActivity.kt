@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.counterquartz.databinding.ActivityMainBinding
 import com.example.counterquartz.model.Player
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.xwray.groupie.GroupieAdapter
@@ -19,16 +20,16 @@ class MainActivity : AppCompatActivity() {
         const val POINT = "point"
         const val RESULT_CODE = 100
     }
+
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val btnAdd: FloatingActionButton = findViewById(R.id.fab_add)
-
-        val rv = findViewById<RecyclerView>(R.id.rv_main)
-        rv.layoutManager = LinearLayoutManager(this)
+        binding.rvMain.layoutManager = LinearLayoutManager(this)
         val adapter = GroupieAdapter()
-        rv.adapter = adapter
+        binding.rvMain.adapter = adapter
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
             if (result.resultCode == RESULT_CODE){
@@ -38,9 +39,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btnAdd.setOnClickListener {
+        binding.fabAdd.setOnClickListener {
             val i = Intent(this,CalculateActivity::class.java)
             launcher.launch(i)
         }
+
+        binding.imgRefresh.setOnClickListener {
+            recreate()
+        }
+
     }
 }
