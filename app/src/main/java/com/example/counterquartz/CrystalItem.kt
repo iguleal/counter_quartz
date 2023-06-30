@@ -44,8 +44,8 @@ class CrystalItem(
 
             when (crystals) {
                 2 -> calculate.calculate(-value, -3)
-                3 -> calculate.calculate(-value, 3 - 4)
-                4 -> calculate.calculate(-value, 4 - 5)
+                3 -> calculate.calculate(-value, 3 - 6)
+                4 -> calculate.calculate(-value, 6 - 10)
                 else -> calculate.calculate(-value)
             }
         }
@@ -59,8 +59,8 @@ class CrystalItem(
 
             when (crystals) {
                 3 -> calculate.calculate(value, 3)
-                4 -> calculate.calculate(value, 4 - 3)
-                5 -> calculate.calculate(value, 5 - 4)
+                4 -> calculate.calculate(value, 6 - 3)
+                5 -> calculate.calculate(value, 10 - 6)
                 else -> calculate.calculate(value)
             }
         }
