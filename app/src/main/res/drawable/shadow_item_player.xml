@@ -3,17 +3,18 @@
 
     <item android:id="@+id/shadow_bg"
         android:start="-10dp"
-        android:end="-10dp">
+        android:end="-10dp"
+        android:top="-10dp">
 
         <shape android:shape="rectangle">
-            <corners android:radius="10dp"/>
+            <corners android:radius="20dp"/>
             <stroke android:width="2dp"
                 android:color="@color/royal_blue" />
 
             <gradient
-                android:startColor="#31C1C1C1"
-                android:centerColor="#51C1C1C1"
-                android:endColor="#31C1C1C1"/>
+                android:startColor="#11C1C1C1"
+                android:centerColor="#31C1C1C1"
+                android:endColor="#11C1C1C1"/>
         </shape>
 
     </item>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.counterquartz.databinding.ActivityCalculateBinding
 import com.example.counterquartz.model.Crystals
@@ -17,7 +18,7 @@ class CalculateActivity : AppCompatActivity(), Calculate {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        installSplashScreen()
         binding = ActivityCalculateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
