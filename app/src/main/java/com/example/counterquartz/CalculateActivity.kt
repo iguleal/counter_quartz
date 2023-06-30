@@ -48,8 +48,7 @@ class CalculateActivity : AppCompatActivity(), Calculate {
         }
 
         binding.constraintContainer.setOnClickListener {
-            val keyboardService = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyboardService.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
+            hideKeyboard()
         }
 
         binding.imgClose.setOnClickListener {
