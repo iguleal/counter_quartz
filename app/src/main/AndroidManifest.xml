@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.App.Starting"
+        android:theme="@style/Theme.CounterQuartz"
         tools:targetApi="31">
         <activity
-            android:theme="@style/Theme.App.Starting"
             android:name=".CalculateActivity"
             android:exported="true" />
         <activity
+            android:theme="@style/Theme.App.Starting"
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -18,7 +18,6 @@ class CalculateActivity : AppCompatActivity(), Calculate {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        installSplashScreen()
         binding = ActivityCalculateBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
