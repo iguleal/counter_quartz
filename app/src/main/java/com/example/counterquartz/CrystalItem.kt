@@ -36,6 +36,8 @@ class CrystalItem(
         crystalValue.text = crystal.value
 
         btnMinus.setOnClickListener {
+            calculate.hideKeyboard()
+
             var crystals = crystalsQtd.text.toString().toInt()
             crystals -= 1
             crystalsQtd.text = crystals.toString()
@@ -51,6 +53,8 @@ class CrystalItem(
         }
 
         btnPlus.setOnClickListener {
+            calculate.hideKeyboard()
+
             var crystals = crystalsQtd.text.toString().toInt()
             crystals += 1
             crystalsQtd.text = crystals.toString()
@@ -65,5 +69,8 @@ class CrystalItem(
             }
         }
 
+        container.setOnClickListener {
+            calculate.hideKeyboard()
+        }
     }
 }

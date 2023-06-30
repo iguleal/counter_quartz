@@ -47,9 +47,9 @@ class CalculateActivity : AppCompatActivity(), Calculate {
             finish()
         }
 
-        binding.calculateContainer.setOnClickListener {
+        binding.constraintContainer.setOnClickListener {
             val keyboardService = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyboardService.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
+            keyboardService.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
         }
 
         binding.imgClose.setOnClickListener {
@@ -59,5 +59,10 @@ class CalculateActivity : AppCompatActivity(), Calculate {
 
     override fun calculate(value: Int, bonus: Int) {
         point += (value + bonus)
+    }
+
+    override fun hideKeyboard() {
+        val keyboardService = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        keyboardService.hideSoftInputFromWindow(this.currentFocus?.windowToken, 0)
     }
 }
